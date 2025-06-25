@@ -5,7 +5,135 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HerbSafe - Escáner Visual</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css"> </head>
+  
+    <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #E8F5E9; /* Un verde muy claro, casi blanco */
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color: #2E7D32; /* Verde oscuro para el texto principal */
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #1B5E20; /* Verde oscuro para el encabezado */
+      color: #ffffff;
+      padding: 1.5rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* Sombra más pronunciada */
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.2rem; /* Tamaño de fuente ligeramente más grande */
+      font-weight: 700;
+    }
+
+    main {
+      padding: 2.5rem 1.5rem; /* Relleno ajustado */
+      max-width: 900px; /* Ancho máximo aumentado */
+      margin: 2rem auto;
+      background: #ffffff;
+      border-radius: 18px; /* Bordes más redondeados */
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25); /* Sombra más fuerte */
+    }
+
+    /* Estilos para la caja del escáner (cámara) */
+    .scanner-box {
+      position: relative;
+      display: inline-block;
+      border: 5px solid #4CAF50; /* Borde verde brillante */
+      border-radius: 15px; /* Bordes redondeados */
+      overflow: hidden; /* Asegura que el video/canvas no sobresalga */
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Sombra para la caja del escáner */
+      margin-top: 1.5rem;
+      background-color: #000; /* Fondo negro para el video, si es necesario */
+    }
+
+    video, canvas {
+      display: block; /* Asegura que ocupen su propio espacio */
+      max-width: 100%;
+      height: auto; /* Mantiene la proporción */
+    }
+
+    img {
+      display: none; /* Mantener la imagen oculta si no se usa directamente */
+    }
+
+    #overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+
+    #output {
+      margin-top: 2.5rem; /* Margen superior ajustado */
+      padding: 1.8rem;
+      background: #F1F8E9; /* Un fondo muy claro para la información */
+      border-radius: 12px; /* Bordes ligeramente redondeados */
+      text-align: left;
+      border: 1px solid #C8E6C9; /* Borde suave */
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.1); /* Sombra interna sutil */
+    }
+
+    #errorMsg {
+      color: #D32F2F; /* Rojo para mensajes de error */
+      margin-top: 18px;
+      font-weight: 700;
+      font-size: 1.1em;
+    }
+
+    button, input[type="file"] {
+      margin: 2rem 0.75rem 1.5rem; /* Márgenes ajustados */
+      padding: 0.9rem 1.8rem; /* Relleno aumentado */
+      font-size: 1.2rem; /* Texto más grande */
+      border: none;
+      border-radius: 10px; /* Bordes más redondeados */
+      background-color: #4CAF50; /* Verde principal para los botones */
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease; /* Transición para el hover y clic */
+      box-shadow: 0 5px 10px rgba(0,0,0,0.2); /* Sombra para los botones */
+    }
+
+    button:hover, input[type="file"]:hover {
+      background-color: #388E3C; /* Verde más oscuro al pasar el ratón */
+      transform: translateY(-2px); /* Efecto ligero de "levantamiento" */
+    }
+
+    button:active, input[type="file"]:active {
+      transform: translateY(0); /* Vuelve a su posición original al hacer clic */
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    ul {
+      padding-left: 1.8rem; /* Relleno ajustado */
+      margin-bottom: 1.2rem;
+      list-style-type: disc; /* Asegura viñetas de disco */
+    }
+
+    ul li {
+      margin-bottom: 0.6rem;
+      color: #424242; /* Color de texto para los ítems de lista */
+      font-size: 1.05rem;
+    }
+
+    h2, h3 {
+      color: #1B5E20; /* Verde oscuro para títulos y subtítulos */
+      margin-top: 1.2rem;
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 1.15rem; /* Tamaño de fuente ligeramente más grande */
+      margin-bottom: 1.8rem;
+      color: #424242;
+    }
+  </style>
+  </head>
 <body>
   <header>
     <h1>HerbSafe: Escáner Visual de Plantas Medicinales (Demo por Nombre de Archivo)</h1>
