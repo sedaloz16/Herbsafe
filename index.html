@@ -2,19 +2,191 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>HerbSafe - Prueba Ajo</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HerbSafe - Escáner Visual</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color: #222;
+    }
+    header {
+      background-color: #0C2116;
+      color: #fff;
+      padding: 1rem;
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    main {
+      padding: 1rem;
+    }
+    video, canvas, img {
+      border: 2px solid #0C2116;
+      margin-top: 1rem;
+      max-width: 100%;
+    }
+    .scanner-box {
+      position: relative;
+      display: inline-block;
+    }
+    #overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+    #output {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: #fff;
+      border-radius: 10px;
+      text-align: left;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    #errorMsg {
+      color: red;
+      margin-top: 10px;
+    }
+    button, input[type="file"] {
+      margin: 1rem 0.5rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      background-color: #0C2116;
+      color: white;
+      cursor: pointer;
+    }
+    ul {
+      padding-left: 1.5rem;
+    }
+    h2, h3 {
+      margin-bottom: 0.3rem;
+    }
+  </style>
 </head>
 <body>
-  <h1>HerbSafe – Escáner (Ajo)</h1>
-  <div id="container">
-    <video id="video" autoplay playsinline muted></video>
-    <canvas id="overlay"></canvas>
-  </div>
-  <button id="scanBtn">Escanear</button>
-  <div id="output">Esperando escaneo…</div>
-  <div id="errorMsg"></div>
-  <script src="app.js"></script>
+  <header>
+    <h1>HerbSafe: Escáner Visual de Plantas Medicinales</h1>
+  </header>
+  <main>
+    <div class="scanner-box">
+      <video id="video" width="640" height="480" autoplay playsinline muted></video>
+      <canvas id="overlay" width="640" height="480"></canvas>
+    </div>
+    <br>
+    <button onclick="captureFrame()">📷 Escanear con Cámara</button>
+    <input type="file" accept="image/*" onchange="handleFile(event)" />
+    <div id="output">Escanea un código visual o carga una imagen para comenzar.</div>
+    <div id="errorMsg"></div>
+  </main>
+  <script>
+    const video = document.getElementById("video");
+    const overlay = document.getElementById("overlay");
+    const ctx = overlay.getContext("2d");
+    const output = document.getElementById("output");
+    const errorMsg = document.getElementById("errorMsg");
+    let plantas = {
+      ajo: {
+        nombre: "Ajo (Allium sativum L.)",
+        usos: [
+          "Antimicrobiano", "Vermífugo", "Antihipertensivo", "Digestivo", "Expectorante"
+        ],
+        advertencias: [
+          "Malestar gastrointestinal", "Riesgo de anemia hemolítica", "Efecto antiplaquetario"
+        ],
+        interacciones: [
+          "✔️ Seguro: Antibóticos",
+          "⚠️ Precaución: Anticoagulantes",
+          "❌ No usar: Antidiabéticos"
+        ],
+        toxicidad: [
+          "✔️ Seguro: Riñones",
+          "⚠️ Precaución: Hígado",
+          "❌ No usar: Tracto digestivo"
+        ]
+      }
+    };
+
+    async function initCamera() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
+        video.srcObject = stream;
+      } catch (err) {
+        console.error("Error al acceder a la cámara", err);
+        errorMsg.textContent = "🚨 No se pudo acceder a la cámara. Usa HTTPS y habilita permisos.";
+      }
+    }
+
+    function drawOverlay() {
+      ctx.clearRect(0, 0, overlay.width, overlay.height);
+      ctx.strokeStyle = '#A8FF00';
+      ctx.lineWidth = 4;
+      ctx.strokeRect(160, 120, 320, 240);
+    }
+
+    function captureFrame() {
+      if (!video.srcObject) return;
+      const canvas = document.createElement("canvas");
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      const context = canvas.getContext("2d");
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+      const imgData = context.getImageData(160, 120, 320, 240);
+      procesarImagen(imgData);
+    }
+
+    function handleFile(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const img = new Image();
+      const reader = new FileReader();
+      reader.onload = () => {
+        img.onload = () => {
+          const canvas = document.createElement("canvas");
+          canvas.width = img.width;
+          canvas.height = img.height;
+          const context = canvas.getContext("2d");
+          context.drawImage(img, 0, 0);
+          const imgData = context.getImageData(0, 0, canvas.width, canvas.height);
+          procesarImagen(imgData);
+        };
+        img.src = reader.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function procesarImagen(imageData) {
+      // En esta versión simulamos que siempre reconoce "ajo"
+      const data = plantas.ajo;
+      mostrarResultado(data);
+    }
+
+    function mostrarResultado(data) {
+      output.innerHTML = `
+        <h2>${data.nombre}</h2>
+        <h3>Usos terapéuticos</h3>
+        <ul>${data.usos.map(u => `<li>${u}</li>`).join('')}</ul>
+        <h3>Advertencias clínicas</h3>
+        <ul>${data.advertencias.map(a => `<li>${a}</li>`).join('')}</ul>
+        <h3>Interacciones con medicamentos</h3>
+        <ul>${data.interacciones.map(i => `<li>${i}</li>`).join('')}</ul>
+        <h3>Toxicidad por órgano o sistema</h3>
+        <ul>${data.toxicidad.map(t => `<li>${t}</li>`).join('')}</ul>
+      `;
+    }
+
+    initCamera();
+    setInterval(drawOverlay, 100);
+  </script>
 </body>
 </html>
