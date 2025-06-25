@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HerbSafe - Escáner Visual</title>
+  <title>HerbSafe - Escáner Visual (v2)</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -30,6 +30,7 @@
       border: 2px solid #0C2116;
       margin-top: 1rem;
       max-width: 100%;
+      display: none; /* Ocultamos video y canvas por ahora si no los usaremos activamente */
     }
     .scanner-box {
       position: relative;
@@ -76,17 +77,17 @@
 </head>
 <body>
   <header>
-    <h1>HerbSafe: Escáner Visual de Plantas Medicinales</h1>
+    <h1>HerbSafe: Escáner Visual de Plantas Medicinales (Demo por Nombre de Archivo)</h1>
   </header>
   <main>
     <div class="scanner-box">
-      <video id="video" width="640" height="480" autoplay playsinline muted></video>
-      <canvas id="overlay" width="640" height="480"></canvas>
+            <video id="video" width="640" height="480" autoplay playsinline muted style="display:none;"></video>
+      <canvas id="overlay" width="640" height="480" style="display:none;"></canvas>
     </div>
     <br>
-    <button onclick="captureFrame()">📷 Escanear con Cámara</button>
+            <p>Sube una imagen de una planta (ej: ajo1.PNG, Albahaca.PNG, ruda.PNG) para ver su información:</p>
     <input type="file" accept="image/*" onchange="handleFile(event)" />
-    <div id="output">Escanea un código visual o carga una imagen para comenzar.</div>
+    <div id="output">Carga una imagen para comenzar.</div>
     <div id="errorMsg"></div>
   </main>
   <script>
@@ -559,76 +560,40 @@
       }
     };
 
-    async function initCamera() {
-      try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
-        video.srcObject = stream;
-      } catch (err) {
-        console.error("Error al acceder a la cámara", err);
-        errorMsg.textContent = "🚨 No se pudo acceder a la cámara. Usa HTTPS y habilita permisos.";
-      }
-    }
+    // initCamera() y drawOverlay() no se necesitan para esta demo de carga de archivo
+    // function initCamera() { ... }
+    // function drawOverlay() { ... }
+    // setInterval(drawOverlay, 100);
 
-    function drawOverlay() {
-      ctx.clearRect(0, 0, overlay.width, overlay.height);
-      ctx.strokeStyle = '#A8FF00';
-      ctx.lineWidth = 4;
-      ctx.strokeRect(160, 120, 320, 240);
-    }
+    // La función captureFrame ya no es relevante si no usamos la cámara
+    // function captureFrame() { ... }
 
-    function captureFrame() {
-      if (!video.srcObject) return;
-      const canvas = document.createElement("canvas");
-      canvas.width = video.videoWidth;
-      canvas.height = video.videoHeight;
-      const context = canvas.getContext("2d");
-      context.drawImage(video, 0, 0, canvas.width, canvas.height);
-      const imgData = context.getImageData(160, 120, 320, 240);
-      procesarImagen(imgData);
-    }
 
     function handleFile(event) {
       const file = event.target.files[0];
-      if (!file) return;
-      const img = new Image();
-      const reader = new FileReader();
-      reader.onload = () => {
-        img.onload = () => {
-          const canvas = document.createElement("canvas");
-          canvas.width = img.width;
-          canvas.height = img.height;
-          const context = canvas.getContext("2d");
-          context.drawImage(img, 0, 0);
-          const imgData = context.getImageData(0, 0, canvas.width, canvas.height);
-          procesarImagen(imgData);
-        };
-        img.src = reader.result;
-      };
-      reader.readAsDataURL(file);
+      if (!file) {
+        output.innerHTML = "Por favor, selecciona un archivo de imagen.";
+        return;
+      }
+
+      // Extrae el nombre de la planta del nombre del archivo
+      // Ej: "ajo1.PNG" -> "ajo"
+      // Ej: "Albahaca.PNG" -> "albahaca"
+      let plantKey = file.name.split('.')[0].toLowerCase(); // "ajo1"
+      plantKey = plantKey.replace(/\d+$/, ''); // Remueve números al final, "ajo1" -> "ajo"
+
+      procesarImagen(plantKey); // Pasa la clave de la planta para buscar
     }
 
-    function procesarImagen(imageData) {
-      // *** SIMULACIÓN DE RECONOCIMIENTO DE PLANTAS ***
-      // En un proyecto real, aquí integrarías una librería de escaneo de códigos QR,
-      // o un modelo de IA para reconocimiento de imágenes de plantas.
-      // Por ahora, haremos una simulación simple:
-
-      const plantKeys = Object.keys(plantas);
-      const randomIndex = Math.floor(Math.random() * plantKeys.length);
-      const randomPlantKey = plantKeys[randomIndex];
-      const data = plantas[randomPlantKey];
-
-      // Puedes modificar esta lógica para:
-      // 1. Integrar una librería de escaneo de códigos QR (ej: jsQR)
-      // 2. Si es reconocimiento visual de la planta, necesitarías un modelo de Machine Learning.
-      //    Para un proyecto de GitHub simple, podrías tener imágenes de referencia y comparar.
-      //    Esto es mucho más complejo y requeriría una base de datos de imágenes y un algoritmo de visión por computadora.
+    function procesarImagen(plantKey) {
+      const data = plantas[plantKey];
 
       if (data) {
         mostrarResultado(data);
-      } else {
-        output.innerHTML = "Planta no reconocida. Intenta escanear otra imagen o código.";
         errorMsg.textContent = "";
+      } else {
+        output.innerHTML = `No se encontró información para la planta "${plantKey}". Por favor, asegúrate de que el nombre del archivo coincida con una planta en la base de datos (ej: ajo.PNG, ruda.PNG).`;
+        errorMsg.textContent = "Planta no reconocida.";
       }
     }
 
@@ -646,8 +611,6 @@
       `;
     }
 
-    initCamera();
-    setInterval(drawOverlay, 100);
   </script>
 </body>
 </html>
