@@ -1,0 +1,30 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+  background: #f4f4f4;
+}
+#container {
+  position: relative;
+  display: inline-block;
+}
+video, canvas {
+  border: 2px solid #0C2116;
+}
+#overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+#output {
+  margin-top: 20px;
+  background: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  display: inline-block;
+  text-align: left;
+}
+#errorMsg {
+  color: red;
+  margin-top: 10px;
+}

@@ -1,0 +1,33 @@
+{
+  "ajo": {
+    "nombre": "Ajo (Allium sativum)",
+    "interacciones": [
+      "Seguro con Analgésicos opioides",
+      "Seguro con Antibióticos",
+      "Precaución con Anticoagulantes",
+      "Sin info para Anticonceptivos",
+      "Sin info para Anticonvulsivantes",
+      "Sin info para Antidepresivos",
+      "Sin info para Antidiabéticos",
+      "Precaución con Antiinflamatorios",
+      "Sin info para Antineoplásicos",
+      "Sin info para Antipsicóticos",
+      "Sin info para Antivirales",
+      "Sin info para Antihipertensivos",
+      "Sin info para Benzodiacepinas",
+      "Sin info para Broncodilatadores",
+      "Sin info para Corticoides",
+      "Sin info para Inmunosupresores"
+    ],
+    "toxicidad": [
+      "Seguro en Hígado",
+      "Precaución en Riñones",
+      "Precaución en Corazón",
+      "Sin info en Cerebro / SNC",
+      "Precaución en Tracto digestivo",
+      "Sin info en Pulmones",
+      "Sin info en Piel",
+      "Sin info en Sistema endocrino"
+    ]
+  }
+}
