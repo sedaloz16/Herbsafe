@@ -1,192 +1,653 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HerbSafe - Escáner Visual</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f9f9f9;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-      color: #222;
-    }
-    header {
-      background-color: #0C2116;
-      color: #fff;
-      padding: 1rem;
-    }
-    h1 {
-      margin: 0;
-      font-size: 1.8rem;
-    }
-    main {
-      padding: 1rem;
-    }
-    video, canvas, img {
-      border: 2px solid #0C2116;
-      margin-top: 1rem;
-      max-width: 100%;
-    }
-    .scanner-box {
-      position: relative;
-      display: inline-block;
-    }
-    #overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-    }
-    #output {
-      margin-top: 1.5rem;
-      padding: 1rem;
-      background: #fff;
-      border-radius: 10px;
-      text-align: left;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    #errorMsg {
-      color: red;
-      margin-top: 10px;
-    }
-    button, input[type="file"] {
-      margin: 1rem 0.5rem;
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      border: none;
-      border-radius: 6px;
-      background-color: #0C2116;
-      color: white;
-      cursor: pointer;
-    }
-    ul {
-      padding-left: 1.5rem;
-    }
-    h2, h3 {
-      margin-bottom: 0.3rem;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HerbSafe - Escáner Visual</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color: #222;
+    }
+    header {
+      background-color: #0C2116;
+      color: #fff;
+      padding: 1rem;
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    main {
+      padding: 1rem;
+    }
+    video, canvas, img {
+      border: 2px solid #0C2116;
+      margin-top: 1rem;
+      max-width: 100%;
+    }
+    .scanner-box {
+      position: relative;
+      display: inline-block;
+    }
+    #overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+    #output {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: #fff;
+      border-radius: 10px;
+      text-align: left;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    #errorMsg {
+      color: red;
+      margin-top: 10px;
+    }
+    button, input[type="file"] {
+      margin: 1rem 0.5rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      background-color: #0C2116;
+      color: white;
+      cursor: pointer;
+    }
+    ul {
+      padding-left: 1.5rem;
+    }
+    h2, h3 {
+      margin-bottom: 0.3rem;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>HerbSafe: Escáner Visual de Plantas Medicinales</h1>
-  </header>
-  <main>
-    <div class="scanner-box">
-      <video id="video" width="640" height="480" autoplay playsinline muted></video>
-      <canvas id="overlay" width="640" height="480"></canvas>
-    </div>
-    <br>
-    <button onclick="captureFrame()">📷 Escanear con Cámara</button>
-    <input type="file" accept="image/*" onchange="handleFile(event)" />
-    <div id="output">Escanea un código visual o carga una imagen para comenzar.</div>
-    <div id="errorMsg"></div>
-  </main>
-  <script>
-    const video = document.getElementById("video");
-    const overlay = document.getElementById("overlay");
-    const ctx = overlay.getContext("2d");
-    const output = document.getElementById("output");
-    const errorMsg = document.getElementById("errorMsg");
-    let plantas = {
-      ajo: {
-        nombre: "Ajo (Allium sativum L.)",
-        usos: [
-          "Antimicrobiano", "Vermífugo", "Antihipertensivo", "Digestivo", "Expectorante"
-        ],
-        advertencias: [
-          "Malestar gastrointestinal", "Riesgo de anemia hemolítica", "Efecto antiplaquetario"
-        ],
-        interacciones: [
-          "✔️ Seguro: Antibóticos",
-          "⚠️ Precaución: Anticoagulantes",
-          "❌ No usar: Antidiabéticos"
-        ],
-        toxicidad: [
-          "✔️ Seguro: Riñones",
-          "⚠️ Precaución: Hígado",
-          "❌ No usar: Tracto digestivo"
-        ]
-      }
-    };
+  <header>
+    <h1>HerbSafe: Escáner Visual de Plantas Medicinales</h1>
+  </header>
+  <main>
+    <div class="scanner-box">
+      <video id="video" width="640" height="480" autoplay playsinline muted></video>
+      <canvas id="overlay" width="640" height="480"></canvas>
+    </div>
+    <br>
+    <button onclick="captureFrame()">📷 Escanear con Cámara</button>
+    <input type="file" accept="image/*" onchange="handleFile(event)" />
+    <div id="output">Escanea un código visual o carga una imagen para comenzar.</div>
+    <div id="errorMsg"></div>
+  </main>
+  <script>
+    const video = document.getElementById("video");
+    const overlay = document.getElementById("overlay");
+    const ctx = overlay.getContext("2d");
+    const output = document.getElementById("output");
+    const errorMsg = document.getElementById("errorMsg");
 
-    async function initCamera() {
-      try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
-        video.srcObject = stream;
-      } catch (err) {
-        console.error("Error al acceder a la cámara", err);
-        errorMsg.textContent = "🚨 No se pudo acceder a la cámara. Usa HTTPS y habilita permisos.";
-      }
-    }
+    // Base de datos de plantas
+    let plantas = {
+      "ajo": {
+        "nombre": "Ajo (Allium sativum L.)",
+        "usos": [
+          "Antimicrobiano",
+          "Vermífugo (expulsa parásitos intestinales)",
+          "Antihipertensivo",
+          "Hipocolesterolemiante",
+          "Inmunoestimulante",
+          "Digestivo",
+          "Expectorante",
+          "Vasodilatador",
+          "Cardioprotector"
+        ],
+        "advertencias": [
+          "Malestar gastrointestinal (uso prolongado)",
+          "Riesgo de anemia hemolítica (uso prolongado)",
+          "Efecto antiplaquetario (uso prolongado)",
+          "Personas con trastornos hemorrágicos (uso prolongado)",
+          "Previo a cirugía (uso prolongado)"
+        ],
+        "interacciones": [
+          "✔️ Seguro con Analgésicos opioides",
+          "✔️ Seguro con Antibióticos",
+          "⚠️ Precaución con Anticoagulantes",
+          "❓ Sin info para Anticonceptivos",
+          "❓ Sin info para Anticonvulsivantes",
+          "❓ Sin info para Antidepresivos",
+          "❓ Sin info para Antidiabéticos",
+          "⚠️ Precaución con Antiinflamatorios",
+          "❓ Sin info para Antineoplásicos",
+          "❓ Sin info para Antipsicóticos",
+          "❓ Sin info para Antivirales",
+          "❓ Sin info para Antihipertensivos",
+          "❓ Sin info para Benzodiacepinas",
+          "❓ Sin info para Broncodilatadores",
+          "❓ Sin info para Corticoides",
+          "❓ Sin info para Inmunosupresores"
+        ],
+        "toxicidad": [
+          "✔️ Seguro en Hígado",
+          "⚠️ Precaución en Riñones",
+          "⚠️ Precaución en Corazón",
+          "❓ Sin info en Cerebro / SNC",
+          "⚠️ Precaución en Tracto digestivo",
+          "❓ Sin info en Pulmones",
+          "❓ Sin info en Piel",
+          "❓ Sin info en Sistema endocrino"
+        ]
+      },
+      "albahaca": {
+        "nombre": "Albahaca (Ocimum basilicum L.)",
+        "usos": [
+          "Antiinflamatorias",
+          "Antiespasmódicas",
+          "Digestivas",
+          "Carminativas (reducen gases)",
+          "Antisépticas",
+          "Estimulantes",
+          "Tónicas nerviosas",
+          "Galactogogas (estimulan producción de leche)"
+        ],
+        "advertencias": [
+          "Irritación gástrica (uso prolongado)",
+          "Algunas especies contienen estragol (uso prolongado)",
+          "Potencial hepatotóxico (uso prolongado)",
+          "Evitar durante el embarazo"
+        ],
+        "interacciones": [
+          "❓ Sin info para Analgésicos opioides",
+          "❓ Sin info para Antibióticos",
+          "❓ Sin info para Anticoagulantes",
+          "❓ Sin info para Anticonceptivos",
+          "❓ Sin info para Anticonvulsivantes",
+          "❓ Sin info para Antidepresivos",
+          "❓ Sin info para Antidiabéticos",
+          "❓ Sin info para Antiinflamatorios",
+          "❓ Sin info para Antineoplásicos",
+          "❓ Sin info para Antipsicóticos",
+          "❓ Sin info para Antivirales",
+          "❓ Sin info para Antihipertensivos",
+          "❓ Sin info para Benzodiacepinas",
+          "❓ Sin info para Broncodilatadores",
+          "❓ Sin info para Corticoides",
+          "❓ Sin info para Inmunosupresores"
+        ],
+        "toxicidad": [
+          "⚠️ Precaución en Hígado",
+          "❓ Sin info en Riñones",
+          "❓ Sin info en Corazón",
+          "❓ Sin info en Cerebro/SNC",
+          "⚠️ Precaución en Tracto digestivo",
+          "❓ Sin info en Pulmones",
+          "❓ Sin info en Piel",
+          "❓ Sin info en Sistema endocrino"
+        ]
+      },
+      "alcachofa": {
+        "nombre": "Alcachofa (Cynara cardunculus)",
+        "usos": [
+          "Hepatoprotectoras",
+          "Coleréticas (estimulan producción de bilis)",
+          "Diuréticas",
+          "Digestivas",
+          "Hipocolesterolemiantes",
+          "Antioxidantes",
+          "Laxantes suaves"
+        ],
+        "advertencias": [
+          "Contraindicada en casos de obstrucción biliar (uso prolongado)",
+          "Flatulencia o molestias abdominales (uso prolongado)",
+          "No recomendada durante el embarazo"
+        ],
+        "interacciones": [
+          "❓ Sin info para Analgésicos opioides",
+          "❓ Sin info para Antibióticos",
+          "❓ Sin info para Anticoagulantes",
+          "❓ Sin info para Anticonceptivos",
+          "❓ Sin info para Anticonvulsivantes",
+          "❓ Sin info para Antidepresivos",
+          "❓ Sin info para Antidiabéticos",
+          "❓ Sin info para Antiinflamatorios",
+          "❓ Sin info para Antineoplásicos",
+          "❓ Sin info para Antipsicóticos",
+          "❓ Sin info para Antivirales",
+          "❓ Sin info para Antihipertensivos",
+          "❓ Sin info para Benzodiacepinas",
+          "❓ Sin info para Broncodilatadores",
+          "❓ Sin info para Corticoides",
+          "❓ Sin info para Inmunosupresores"
+        ],
+        "toxicidad": [
+          "✔️ Seguro en Hígado",
+          "❓ Sin info en Riñones",
+          "❓ Sin info en Corazón",
+          "❓ Sin info en Cerebro/SNC",
+          "⚠️ Precaución en Tracto digestivo",
+          "❓ Sin info en Pulmones",
+          "❓ Sin info en Piel",
+          "❓ Sin info en Sistema endocrino"
+        ]
+      },
+      "coca": {
+        "nombre": "Coca (Erythroxylum coca Lam.)",
+        "usos": [
+          "Energizante",
+          "Estimulante",
+          "Digestiva",
+          "Contra el mal de altura (soroche)",
+          "Analgésica",
+          "Antiespasmódica"
+        ],
+        "advertencias": [
+          "El uso tradicional de la hoja de coca no implica efectos psicotrópicos intensos, niveles de alcaloides son bajos y no refinados",
+          "Puede elevar ligeramente la presión arterial y la frecuencia cardíaca",
+          "No combinarse con estimulantes del SNC",
+          "Contraindicado en pacientes con hipertensión no controlada, arritmias o embarazo"
+        ],
+        "interacciones": [
+          "❓ Sin info para Analgésicos opioides",
+          "❓ Sin info para Antibióticos",
+          "❓ Sin info para Anticoagulantes",
+          "❓ Sin info para Anticonceptivos",
+          "⚠️ Precaución con Anticonvulsivantes",
+          "❓ Sin info para Antidepresivos",
+          "❓ Sin info para Antidiabéticos",
+          "❓ Sin info para Antiinflamatorios",
+          "❓ Sin info para Antineoplásicos",
+          "❓ Sin info para Antipsicóticos",
+          "❓ Sin info para Antivirales",
+          "⚠️ Precaución con Antihipertensivos",
+          "⚠️ Precaución con Benzodiacepinas",
+          "❓ Sin info para Broncodilatadores",
+          "❓ Sin info para Corticoides",
+          "❓ Sin info para Inmunosupresores"
+        ],
+        "toxicidad": [
+          "⚠️ Precaución en Hígado",
+          "❓ Sin info en Riñones",
+          "⚠️ Precaución en Corazón",
+          "⚠️ Precaución en Cerebro / SNC",
+          "✔️ Seguro en Tracto digestivo",
+          "❓ Sin info en Pulmones",
+          "❓ Sin info en Piel",
+          "❓ Sin info en Sistema endocrino"
+        ]
+      },
+      "kiswara": {
+        "nombre": "Kiswara (Buddleja coriacea J. Rémy.)",
+        "usos": [
+          "Antiinflamatorias",
+          "Antisépticas",
+          "Cicatrizantes",
+          "Digestivas",
+          "Antitusivas",
+          "Hepatoprotectoras",
+          "Estimulantes inmunitarios",
+          "Desinfectantes urinarios"
+        ],
+        "advertencias": [
+          "Estudios científicos son escasos",
+          "No existen estudios toxicológicos sistemáticos ni evidencia clara de interacción farmacológica",
+          "No en embarazo y lactancia por falta de estudios"
+        ],
+        "interacciones": [
+          "❓ Sin info para Analgésicos opioides",
+          "❓ Sin info para Antibióticos",
+          "❓ Sin info para Anticoagulantes",
+          "❓ Sin info para Anticonceptivos",
+          "❓ Sin info para Anticonvulsivantes",
+          "❓ Sin info para Antidepresivos",
+          "❓ Sin info para Antidiabéticos",
+          "❓ Sin info para Antiinflamatorios",
+          "❓ Sin info para Antineoplásicos",
+          "❓ Sin info para Antipsicóticos",
+          "❓ Sin info para Antivirales",
+          "❓ Sin info para Antihipertensivos",
+          "❓ Sin info para Benzodiacepinas",
+          "❓ Sin info para Broncodilatadores",
+          "❓ Sin info para Corticoides",
+          "❓ Sin info para Inmunosupresores"
+        ],
+        "toxicidad": [
+          "❓ Sin info en Hígado",
+          "❓ Sin info en Riñones",
+          "❓ Sin info en Corazón",
+          "❓ Sin info en Cerebro / SNC",
+          "❓ Sin info en Tracto digestivo",
+          "❓ Sin info en Pulmones",
+          "❓ Sin info en Piel",
+          "❓ Sin info en Sistema endocrino"
+        ]
+      },
+      "malva": {
+        "nombre": "Malva (Malva sylvestris L.)",
+        "usos": [
+          "Antiinflamatorias",
+          "Emolientes (suavizante de mucosas y piel)",
+          "Antitusivas",
+          "Digestivas",
+          "Diuréticas",
+          "Cicatrizantes",
+          "Laxantes suaves",
+          "Antisépticas"
+        ],
+        "advertencias": [
+          "Puede interferir con la absorción intestinal de medicamentos orales si se toma en simultáneo (efecto mucílago)",
+          "No usar en tratamientos farmacológicos sin separar al menos 2 horas"
+        ],
+        "interacciones": [
+          "❓ Sin info para Analgésicos opioides",
+          "⚠️ Precaución con Antibióticos (absorción)",
+          "❓ Sin info para Anticoagulantes",
+          "❓ Sin info para Anticonceptivos",
+          "❓ Sin info para Anticonvulsivantes",
+          "❓ Sin info para Antidepresivos",
+          "❓ Sin info para Antidiabéticos",
+          "⚠️ Precaución con Antiinflamatorios (absorción)",
+          "❓ Sin info para Antineoplásicos",
+          "❓ Sin info para Antipsicóticos",
+          "❓ Sin info para Antivirales",
+          "❓ Sin info para Antihipertensivos",
+          "❓ Sin info para Benzodiacepinas",
+          "❓ Sin info para Broncodilatadores",
+          "❓ Sin info para Corticoides",
+          "❓ Sin info para Inmunosupresores"
+        ],
+        "toxicidad": [
+          "✔️ Seguro en Hígado",
+          "✔️ Seguro en Riñones",
+          "❓ Sin info en Corazón",
+          "❓ Sin info en Cerebro / SNC",
+          "✔️ Seguro en Tracto digestivo",
+          "✔️ Seguro en Pulmones",
+          "✔️ Seguro en Piel",
+          "❓ Sin info en Sistema endocrino"
+        ]
+      },
+      "manzanilla": {
+        "nombre": "Manzanilla (Matricaria recutita L.)",
+        "usos": [
+          "Antiinflamatorias",
+          "Digestivas",
+          "Carminativas",
+          "Antiespasmódicas",
+          "Sedantes suaves",
+          "Antisépticas",
+          "Cicatrizantes",
+          "Antitusivas"
+        ],
+        "advertencias": [
+          "Puede potenciar el efecto de sedantes y anticoagulantes por contenido de cumarinas",
+          "Evitar en embarazo en grandes cantidades; infusión moderada es generalmente segura"
+        ],
+        "interacciones": [
+          "❓ Sin info para Analgésicos opioides",
+          "❓ Sin info para Antibióticos",
+          "⚠️ Precaución con Anticoagulantes",
+          "❓ Sin info para Anticonceptivos",
+          "❓ Sin info para Anticonvulsivantes",
+          "⚠️ Precaución con Antidepresivos (efecto sedante)",
+          "❓ Sin info para Antidiabéticos",
+          "❓ Sin info para Antiinflamatorios",
+          "❓ Sin info para Antineoplásicos",
+          "❓ Sin info para Antipsicóticos",
+          "❓ Sin info para Antivirales",
+          "❓ Sin info para Antihipertensivos",
+          "⚠️ Precaución con Benzodiacepinas",
+          "❓ Sin info para Broncodilatadores",
+          "❓ Sin info para Corticoides",
+          "❓ Sin info para Inmunosupresores"
+        ],
+        "toxicidad": [
+          "✔️ Seguro en Hígado",
+          "✔️ Seguro en Riñones",
+          "❓ Sin info en Corazón",
+          "✔️ Seguro en Cerebro / SNC",
+          "✔️ Seguro en Tracto digestivo",
+          "✔️ Seguro en Pulmones",
+          "✔️ Seguro en Piel",
+          "❓ Sin info en Sistema endocrino"
+        ]
+      },
+      "menta": {
+        "nombre": "Menta (Mentha piperita L.)",
+        "usos": [
+          "Antiespasmódicas",
+          "Carminativas",
+          "Digestivas",
+          "Antiinflamatorias",
+          "Antisépticas",
+          "Antitusivas"
+        ],
+        "advertencias": [
+          "Puede causar irritación gástrica, bradicardia o toxicidad neurológica leve",
+          "Evitar aceite esencial puro en niños menores de 2 años (riesgo de espasmo glótico)",
+          "Puede interferir con antiácidos o medicamentos que requieran pH gástrico ácido"
+        ],
+        "interacciones": [
+          "❓ Sin info para Analgésicos opioides",
+          "❓ Sin info para Antibióticos",
+          "❓ Sin info para Anticoagulantes",
+          "❓ Sin info para Anticonceptivos",
+          "❓ Sin info para Anticonvulsivantes",
+          "❓ Sin info para Antidepresivos",
+          "⚠️ Precaución con Antidiabéticos",
+          "❓ Sin info para Antiinflamatorios",
+          "❓ Sin info para Antineoplásicos",
+          "❓ Sin info para Antipsicóticos",
+          "❓ Sin info para Antivirales",
+          "❓ Sin info para Antihipertensivos",
+          "❓ Sin info para Benzodiacepinas",
+          "❓ Sin info para Broncodilatadores",
+          "❓ Sin info para Corticoides",
+          "❓ Sin info para Inmunosupresores"
+        ],
+        "toxicidad": [
+          "⚠️ Precaución en Hígado",
+          "❓ Sin info en Riñones",
+          "⚠️ Precaución en Corazón",
+          "⚠️ Precaución en Cerebro / SNC",
+          "⚠️ Precaución en Tracto digestivo",
+          "❓ Sin info en Pulmones",
+          "❓ Sin info en Piel",
+          "❓ Sin info en Sistema endocrino"
+        ]
+      },
+      "romero": {
+        "nombre": "Romero (Rosmarinus officinalis L.)",
+        "usos": [
+          "Estimulantes",
+          "Antiinflamatorias",
+          "Carminativas",
+          "Colagogas (estimulan flujo biliar)",
+          "Antisépticas",
+          "Analgésicas",
+          "Cicatrizantes",
+          "Rubefacientes (mejoran circulación)",
+          "Estimulantes del sistema nervioso"
+        ],
+        "advertencias": [
+          "El aceite esencial puede ser neurotóxico",
+          "No se recomienda en embarazo por efecto emenagogo y riesgo de contracciones",
+          "Puede interferir con fármacos antihipertensivos y anticonvulsivantes"
+        ],
+        "interacciones": [
+          "❓ Sin info para Analgésicos opioides",
+          "❓ Sin info para Antibióticos",
+          "❓ Sin info para Anticoagulantes",
+          "❓ Sin info para Anticonceptivos",
+          "⚠️ Precaución con Anticonvulsivantes",
+          "❓ Sin info para Antidepresivos",
+          "❓ Sin info para Antidiabéticos",
+          "❓ Sin info para Antiinflamatorios",
+          "❓ Sin info para Antineoplásicos",
+          "❓ Sin info para Antipsicóticos",
+          "❓ Sin info para Antivirales",
+          "⚠️ Precaución con Antihipertensivos",
+          "❓ Sin info para Benzodiacepinas",
+          "❓ Sin info para Broncodilatadores",
+          "❓ Sin info para Corticoides",
+          "❓ Sin info para Inmunosupresores"
+        ],
+        "toxicidad": [
+          "⚠️ Precaución en Hígado",
+          "❓ Sin info en Riñones",
+          "❓ Sin info en Corazón",
+          "⚠️ Precaución en Cerebro / SNC",
+          "❓ Sin info en Tracto digestivo",
+          "❓ Sin info en Pulmones",
+          "❓ Sin info en Piel",
+          "❓ Sin info en Sistema endocrino"
+        ]
+      },
+      "ruda": {
+        "nombre": "Ruda (Ruta chalepensis)",
+        "usos": [
+          "Antiespasmódicas",
+          "Emmenagogas (estimula menstruación)",
+          "Digestivas",
+          "Antiinflamatorias",
+          "Vermífugas (expulsa parásitos intestinales)",
+          "Rubefacientes (mejora circulación)",
+          "Abortivas (riesgo)"
+        ],
+        "advertencias": [
+          "En altas dosis, puede causar intoxicación severa, aborto, nefrotoxicidad y hepatotoxicidad",
+          "Su uso interno está restringido o prohibido en varios países por toxicidad comprobada",
+          "Tóxica en embarazo y lactancia",
+          "Debe evitarse su uso en personas con enfermedades hepáticas, renales, cardíacas"
+        ],
+        "interacciones": [
+          "❓ Sin info para Analgésicos opioides",
+          "❓ Sin info para Antibióticos",
+          "⚠️ Precaución con Anticoagulantes",
+          "❌ No usar con Anticonceptivos",
+          "❓ Sin info para Anticonvulsivantes",
+          "❓ Sin info para Antidepresivos",
+          "❓ Sin info para Antidiabéticos",
+          "⚠️ Precaución con Antiinflamatorios",
+          "❓ Sin info para Antineoplásicos",
+          "❓ Sin info para Antipsicóticos",
+          "❓ Sin info para Antivirales",
+          "❓ Sin info para Antihipertensivos",
+          "❓ Sin info para Benzodiacepinas",
+          "❓ Sin info para Broncodilatadores",
+          "❓ Sin info para Corticoides",
+          "❓ Sin info para Inmunosupresores"
+        ],
+        "toxicidad": [
+          "❌ No usar en Hígado",
+          "❌ No usar en Riñones",
+          "⚠️ Precaución en Corazón",
+          "⚠️ Precaución en Cerebro / SNC",
+          "⚠️ Precaución en Tracto digestivo",
+          "❓ Sin info en Pulmones",
+          "⚠️ Precaución en Piel",
+          "❓ Sin info en Sistema endocrino"
+        ]
+      }
+    };
 
-    function drawOverlay() {
-      ctx.clearRect(0, 0, overlay.width, overlay.height);
-      ctx.strokeStyle = '#A8FF00';
-      ctx.lineWidth = 4;
-      ctx.strokeRect(160, 120, 320, 240);
-    }
+    async function initCamera() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
+        video.srcObject = stream;
+      } catch (err) {
+        console.error("Error al acceder a la cámara", err);
+        errorMsg.textContent = "🚨 No se pudo acceder a la cámara. Usa HTTPS y habilita permisos.";
+      }
+    }
 
-    function captureFrame() {
-      if (!video.srcObject) return;
-      const canvas = document.createElement("canvas");
-      canvas.width = video.videoWidth;
-      canvas.height = video.videoHeight;
-      const context = canvas.getContext("2d");
-      context.drawImage(video, 0, 0, canvas.width, canvas.height);
-      const imgData = context.getImageData(160, 120, 320, 240);
-      procesarImagen(imgData);
-    }
+    function drawOverlay() {
+      ctx.clearRect(0, 0, overlay.width, overlay.height);
+      ctx.strokeStyle = '#A8FF00';
+      ctx.lineWidth = 4;
+      ctx.strokeRect(160, 120, 320, 240);
+    }
 
-    function handleFile(event) {
-      const file = event.target.files[0];
-      if (!file) return;
-      const img = new Image();
-      const reader = new FileReader();
-      reader.onload = () => {
-        img.onload = () => {
-          const canvas = document.createElement("canvas");
-          canvas.width = img.width;
-          canvas.height = img.height;
-          const context = canvas.getContext("2d");
-          context.drawImage(img, 0, 0);
-          const imgData = context.getImageData(0, 0, canvas.width, canvas.height);
-          procesarImagen(imgData);
-        };
-        img.src = reader.result;
-      };
-      reader.readAsDataURL(file);
-    }
+    function captureFrame() {
+      if (!video.srcObject) return;
+      const canvas = document.createElement("canvas");
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      const context = canvas.getContext("2d");
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+      const imgData = context.getImageData(160, 120, 320, 240);
+      procesarImagen(imgData);
+    }
 
-    function procesarImagen(imageData) {
-      // En esta versión simulamos que siempre reconoce "ajo"
-      const data = plantas.ajo;
-      mostrarResultado(data);
-    }
+    function handleFile(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const img = new Image();
+      const reader = new FileReader();
+      reader.onload = () => {
+        img.onload = () => {
+          const canvas = document.createElement("canvas");
+          canvas.width = img.width;
+          canvas.height = img.height;
+          const context = canvas.getContext("2d");
+          context.drawImage(img, 0, 0);
+          const imgData = context.getImageData(0, 0, canvas.width, canvas.height);
+          procesarImagen(imgData);
+        };
+        img.src = reader.result;
+      };
+      reader.readAsDataURL(file);
+    }
 
-    function mostrarResultado(data) {
-      output.innerHTML = `
-        <h2>${data.nombre}</h2>
-        <h3>Usos terapéuticos</h3>
-        <ul>${data.usos.map(u => `<li>${u}</li>`).join('')}</ul>
-        <h3>Advertencias clínicas</h3>
-        <ul>${data.advertencias.map(a => `<li>${a}</li>`).join('')}</ul>
-        <h3>Interacciones con medicamentos</h3>
-        <ul>${data.interacciones.map(i => `<li>${i}</li>`).join('')}</ul>
-        <h3>Toxicidad por órgano o sistema</h3>
-        <ul>${data.toxicidad.map(t => `<li>${t}</li>`).join('')}</ul>
-      `;
-    }
+    function procesarImagen(imageData) {
+      // *** SIMULACIÓN DE RECONOCIMIENTO DE PLANTAS ***
+      // En un proyecto real, aquí integrarías una librería de escaneo de códigos QR,
+      // o un modelo de IA para reconocimiento de imágenes de plantas.
+      // Por ahora, haremos una simulación simple:
 
-    initCamera();
-    setInterval(drawOverlay, 100);
-  </script>
+      const plantKeys = Object.keys(plantas);
+      const randomIndex = Math.floor(Math.random() * plantKeys.length);
+      const randomPlantKey = plantKeys[randomIndex];
+      const data = plantas[randomPlantKey];
+
+      // Puedes modificar esta lógica para:
+      // 1. Integrar una librería de escaneo de códigos QR (ej: jsQR)
+      // 2. Si es reconocimiento visual de la planta, necesitarías un modelo de Machine Learning.
+      //    Para un proyecto de GitHub simple, podrías tener imágenes de referencia y comparar.
+      //    Esto es mucho más complejo y requeriría una base de datos de imágenes y un algoritmo de visión por computadora.
+
+      if (data) {
+        mostrarResultado(data);
+      } else {
+        output.innerHTML = "Planta no reconocida. Intenta escanear otra imagen o código.";
+        errorMsg.textContent = "";
+      }
+    }
+
+    function mostrarResultado(data) {
+      output.innerHTML = `
+        <h2>${data.nombre}</h2>
+        <h3>Usos terapéuticos</h3>
+        <ul>${data.usos.map(u => `<li>${u}</li>`).join('')}</ul>
+        <h3>Advertencias clínicas</h3>
+        <ul>${data.advertencias.map(a => `<li>${a}</li>`).join('')}</ul>
+        <h3>Interacciones con medicamentos</h3>
+        <ul>${data.interacciones.map(i => `<li>${i}</li>`).join('')}</ul>
+        <h3>Toxicidad por órgano o sistema</h3>
+        <ul>${data.toxicidad.map(t => `<li>${t}</li>`).join('')}</ul>
+      `;
+    }
+
+    initCamera();
+    setInterval(drawOverlay, 100);
+  </script>
 </body>
 </html>
