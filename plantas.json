@@ -1,33 +1,1525 @@
 {
   "ajo": {
-    "nombre": "Ajo (Allium sativum)",
-    "interacciones": [
-      "Seguro con Analgésicos opioides",
-      "Seguro con Antibióticos",
-      "Precaución con Anticoagulantes",
-      "Sin info para Anticonceptivos",
-      "Sin info para Anticonvulsivantes",
-      "Sin info para Antidepresivos",
-      "Sin info para Antidiabéticos",
-      "Precaución con Antiinflamatorios",
-      "Sin info para Antineoplásicos",
-      "Sin info para Antipsicóticos",
-      "Sin info para Antivirales",
-      "Sin info para Antihipertensivos",
-      "Sin info para Benzodiacepinas",
-      "Sin info para Broncodilatadores",
-      "Sin info para Corticoides",
-      "Sin info para Inmunosupresores"
+    "nombre": "Ajo (Allium sativum L.)",
+    "usos_terapeuticos": [
+      "Antimicrobiano",
+      "Vermífugo (expulsa parásitos intestinales)",
+      "Antihipertensivo",
+      "Hipocolesterolemiante",
+      "Inmunoestimulante",
+      "Digestivo",
+      "Expectorante",
+      "Vasodilatador",
+      "Cardioprotector"
     ],
-    "toxicidad": [
-      "Seguro en Hígado",
-      "Precaución en Riñones",
-      "Precaución en Corazón",
-      "Sin info en Cerebro / SNC",
-      "Precaución en Tracto digestivo",
-      "Sin info en Pulmones",
-      "Sin info en Piel",
-      "Sin info en Sistema endocrino"
-    ]
+    "advertencias_clinicas": [
+      "Malestar gastrointestinal (uso prolongado)",
+      "Riesgo de anemia hemolítica (uso prolongado)",
+      "Efecto antiplaquetario (uso prolongado)",
+      "Personas con trastornos hemorrágicos (uso prolongado)",
+      "Previo a cirugía (uso prolongado)"
+    ],
+    "interacciones": {
+      "medicamentos": [
+        "Analgésicos opioides",
+        "Antibióticos",
+        "Anticoagulantes",
+        "Anticonceptivos",
+        "Anticonvulsivantes",
+        "Antidepresivos",
+        "Antidiabéticos",
+        "Antiinflamatorios",
+        "Antineoplásicos",
+        "Antipsicóticos",
+        "Antivirales",
+        "Antihipertensivos",
+        "Benzodiacepinas",
+        "Broncodilatadores",
+        "Corticoides",
+        "Inmunosupresores"
+      ],
+      "toxicidad_organica": [
+        "Hígado",
+        "Riñones",
+        "Corazón",
+        "Cerebro /SNC",
+        "Tracto digestivo",
+        "Pulmones",
+        "Piel",
+        "Sistema endocrino"
+      ]
+    }
+  },
+  "albahaca": {
+    "nombre": "Albahaca (Ocimum basilicum L.)",
+    "usos_terapeuticos": [
+      "Antiinflamatorias",
+      "Antiespasmódicas",
+      "Digestivas",
+      "Carminativas (reducen gases)",
+      "Antisépticas",
+      "Estimulantes",
+      "Tónicas nerviosas",
+      "Galactogogas (estimulan producción de leche)"
+    ],
+    "advertencias_clinicas": [
+      "Irritación gástrica (uso prolongado)",
+      "Algunas especies contienen estragol (uso prolongado)",
+      "Potencial hepatotóxico (uso prolongado)",
+      "Evitar durante el embarazo"
+    ],
+    "interacciones": {
+      "medicamentos": [
+        "Analgésicos opioides",
+        "Antibióticos",
+        "Anticoagulantes",
+        "Anticonceptivos",
+        "Anticonvulsivantes",
+        "Antidepresivos",
+        "Antidiabéticos",
+        "Antiinflamatorios",
+        "Antineoplásicos",
+        "Antipsicóticos",
+        "Antivirales",
+        "Antihipertensivos",
+        "Benzodiacepinas",
+        "Broncodilatadores",
+        "Corticoides",
+        "Inmunosupresores"
+      ],
+      "toxicidad_organica": [
+        "Hígado",
+        "Riñones",
+        "Corazón",
+        "Cerebro/SNC",
+        "Tracto digestivo",
+        "Pulmones",
+        "Piel",
+        "Sistema endocrino"
+      ]
+    }
+  },
+  "alcachofa": {
+    "nombre": "Alcachofa (Cynara cardunculus)",
+    "usos_terapeuticos": [
+      "Hepatoprotectoras",
+      "Coleréticas (estimulan producción de bilis)",
+      "Diuréticas",
+      "Digestivas",
+      "Hipocolesterolemiantes",
+      "Antioxidantes",
+      "Laxantes suaves"
+    ],
+    "advertencias_clinicas": [
+      "Contraindicada en casos de obstrucción biliar (uso prolongado)",
+      "Flatulencia o molestias abdominales (uso prolongado)",
+      "No recomendada durante el embarazo"
+    ],
+    "interacciones": {
+      "medicamentos": [
+        "Analgésicos opioides",
+        "Antibióticos",
+        "Anticoagulantes",
+        "Anticonceptivos",
+        "Anticonvulsivantes",
+        "Antidepresivos",
+        "Antidiabéticos",
+        "Antiinflamatorios",
+        "Antineoplásicos",
+        "Antipsicóticos",
+        "Antivirales",
+        "Antihipertensivos",
+        "Benzodiacepinas",
+        "Broncodilatadores",
+        "Corticoides",
+        "Inmunosupresores"
+      ],
+      "toxicidad_organica": [
+        "Hígado",
+        "Riñones",
+        "Corazón",
+        "Cerebro/SNC",
+        "Tracto digestivo",
+        "Pulmones",
+        "Piel",
+        "Sistema endocrino"
+      ]
+    }
+  },
+  "aliso": {
+    "nombre": "Aliso (Alnus acuminata)",
+    "usos_terapeuticos": [
+      "Antiinflamatorias",
+      "Antisépticas",
+      "Astringentes (reducen secreciones)",
+      "Cicatrizantes",
+      "Antipiréticas (bajan la fiebre)",
+      "Antidiarreicas",
+      "Hemostáticas (detienen hemorragias)"
+    ],
+    "advertencias_clinicas": [
+      "Presencia de taninos, pueden irritar mucosas (uso prolongado)",
+      "Úlceras gastrointestinales o gastritis activa (uso prolongado)",
+      "Evitarse sobre heridas abiertas extensas (uso prolongado)"
+    ],
+    "interacciones": {
+      "medicamentos": [
+        "Analgésicos opioides",
+        "Antibióticos",
+        "Anticoagulantes",
+        "Anticonceptivos",
+        "Anticonvulsivantes",
+        "Antidepresivos",
+        "Antidiabéticos",
+        "Antiinflamatorios",
+        "Antineoplásicos",
+        "Antipsicóticos",
+        "Antivirales",
+        "Antihipertensivos",
+        "Benzodiacepinas",
+        "Broncodilatadores",
+        "Corticoides",
+        "Inmunosupresores"
+      ],
+      "toxicidad_organica": [
+        "Hígado",
+        "Riñones",
+        "Corazón",
+        "Cerebro/SNC",
+        "Tracto digestivo",
+        "Pulmones",
+        "Piel",
+        "Sistema endocrino"
+      ]
+    }
+  },
+  "anís (estrellado)": {
+    "nombre": "Anís (estrellado) (Pimpinella anisum L.)",
+    "usos_terapeuticos": [
+      "Antiespasmódicas",
+      "Carminativas (reducen gases)",
+      "Digestivas",
+      "Expectorantes",
+      "Estimulantes",
+      "Galactogogas (estimulan producción de leche)",
+      "Antitusivas",
+      "Antibacterianas"
+    ],
+    "advertencias_clinicas": [
+      "El aceite esencial puro puede ser neurotóxico (uso prolongado)",
+      "Uso en niños menores de 2 años (uso prolongado)",
+      "No durante el embarazo sin supervisión (uso prolongado)",
+      "Puede causar efectos estrogénicos leves (uso prolongado)",
+      "Evitar con fármacos de acción hormonal (uso prolongado)",
+      "Antecedentes de convulsiones (uso prolongado)"
+    ],
+    "interacciones": {
+      "medicamentos": [
+        "Analgésicos opioides",
+        "Antibióticos",
+        "Anticoagulantes",
+        "Anticonceptivos",
+        "Anticonvulsivantes",
+        "Antidepresivos",
+        "Antidiabéticos",
+        "Antiinflamatorios",
+        "Antineoplásicos",
+        "Antipsicóticos",
+        "Antivirales",
+        "Antihipertensivos",
+        "Benzodiacepinas",
+        "Broncodilatadores",
+        "Corticoides",
+        "Inmunosupresores"
+      ],
+      "toxicidad_organica": [
+        "Hígado",
+        "Riñones",
+        "Corazón",
+        "Cerebro/SNC",
+        "Tracto digestivo",
+        "Pulmones",
+        "Piel",
+        "Sistema endocrino"
+      ]
+    }
+  },
+  "caléndula": {
+    "nombre": "Caléndula (Calendula officinalis L.)",
+    "usos_terapeuticos": [
+      "Antiinflamatorias",
+      "Cicatrizantes",
+      "Antisépticas",
+      "Emolientes (suavizan tejidos)",
+      "Coleréticas (estimulan la bilis)",
+      "Reguladoras menstruales",
+      "Antiespasmódicas",
+      "Antifúngicas"
+    ],
+    "advertencias_clinicas": [
+      "Evitar durante el embarazo y lactancia (uso prolongado)",
+      "Puede potenciar efectos estrogénicos, no con tratamientos hormonales (uso prolongado)"
+    ],
+    "interacciones": {
+      "medicamentos": [
+        "Analgésicos opioides",
+        "Antibióticos",
+        "Anticoagulantes",
+        "Anticonceptivos",
+        "Anticonvulsivantes",
+        "Antidepresivos",
+        "Antidiabéticos",
+        "Antiinflamatorios",
+        "Antineoplásicos",
+        "Antipsicóticos",
+        "Antivirales",
+        "Antihipertensivos",
+        "Benzodiacepinas",
+        "Broncodilatadores",
+        "Corticoides",
+        "Inmunosupresores"
+      ],
+      "toxicidad_organica": [
+        "Hígado",
+        "Riñones",
+        "Corazón",
+        "Cerebro/SNC",
+        "Tracto digestivo",
+        "Pulmones",
+        "Piel",
+        "Sistema endocrino"
+      ]
+    }
+  },
+  "cerraja": {
+    "nombre": "Cerraja (Sonchus oleraceus)",
+    "usos_terapeuticos": [
+      "Diurética",
+      "Laxante suave",
+      "Antiinflamatoria",
+      "Depurativa (elimina toxinas)",
+      "Hepatoprotectora",
+      "Antioxidante",
+      "Vermífuga (expulsa parásitos intestinales)"
+    ],
+    "advertencias_clinicas": [
+      "Puede interferir con diuréticos o hipotensores (uso prolongado)",
+      "Precaución en personas con enfermedades renales crónicas por su efecto diurético (uso prolongado)"
+    ],
+    "interacciones": {
+      "medicamentos": [
+        "Analgésicos opioides",
+        "Antibióticos",
+        "Anticoagulantes",
+        "Anticonceptivos",
+        "Anticonvulsivantes",
+        "Antidepresivos",
+        "Antidiabéticos",
+        "Antiinflamatorios",
+        "Antineoplásicos",
+        "Antipsicóticos",
+        "Antivirales",
+        "Antihipertensivos",
+        "Benzodiacepinas",
+        "Broncodilatadores",
+        "Corticoides",
+        "Inmunosupresores"
+      ],
+      "toxicidad_organica": [
+        "Hígado",
+        "Riñones",
+        "Corazón",
+        "Cerebro /SNC",
+        "Tracto digestivo",
+        "Pulmones",
+        "Piel",
+        "Sistema endocrino"
+      ]
+    }
+  },
+  "chachacoma": {
+    "nombre": "Chachacoma (Senecio graveolens Wedd.)",
+    "usos_terapeuticos": [
+      "Antitusiva",
+      "Expectorante",
+      "Antiinflamatoria",
+      "Vasodilatadora",
+      "Mal de Altura",
+      "Antiespasmódica",
+      "Cardioprotectora"
+    ],
+    "advertencias_clinicas": [
+      "Alcaloides pirrolizidínicos (hepatotóxicos) (uso prolongado)",
+      "NO debe utilizarse en embarazadas, lactantes (uso prolongado)",
+      "Hepatomegalia, cirrosis venooclusiva (uso prolongado)",
+      "Prohibida su comercialización como suplemento en varios países (uso prolongado)"
+    ],
+    "interacciones": {
+      "medicamentos": [
+        "Analgésicos opioides",
+        "Antibióticos",
+        "Anticoagulantes",
+        "Anticonceptivos",
+        "Anticonvulsivantes",
+        "Antidepresivos",
+        "Antidiabéticos",
+        "Antiinflamatorios",
+        "Antineoplásicos",
+        "Antipsicóticos",
+        "Antivirales",
+        "Antihipertensivos",
+        "Benzodiacepinas",
+        "Broncodilatadores",
+        "Corticoides",
+        "Inmunosupresores"
+      ],
+      "toxicidad_organica": [
+        "Hígado",
+        "Riñones",
+        "Corazón",
+        "Cerebro /SNC",
+        "Tracto digestivo",
+        "Pulmones",
+        "Piel",
+        "Sistema endocrino"
+      ]
+    }
+  },
+  "chilca": {
+    "nombre": "Chilca (Baccharis latifolia)",
+    "usos_terapeuticos": [
+      "Antiinflamatoria",
+      "Antibacteriana",
+      "Cicatrizante",
+      "Antiséptica",
+      "Emoliente",
+      "Digestiva",
+      "Analgésica"
+    ],
+    "advertencias_clinicas": [
+      "Trastornos gastrointestinales crónicos, puede aumentar el peristaltismo (uso prolongado)",
+      "Evitar su uso en embarazo (uso prolongado)",
+      "El uso tópico, resequedad o fotosensibilidad (uso prolongado)"
+    ],
+    "interacciones": {
+      "medicamentos": [
+        "Analgésicos opioides",
+        "Antibióticos",
+        "Anticoagulantes",
+        "Anticonceptivos",
+        "Anticonvulsivantes",
+        "Antidepresivos",
+        "Antidiabéticos",
+        "Antiinflamatorios",
+        "Antineoplásicos",
+        "Antipsicóticos",
+        "Antivirales",
+        "Antihipertensivos",
+        "Benzodiacepinas",
+        "Broncodilatadores",
+        "Corticoides",
+        "Inmunosupresores"
+      ],
+      "toxicidad_organica": [
+        "Hígado",
+        "Riñones",
+        "Corazón",
+        "Cerebro/SNC",
+        "Tracto digestivo",
+        "Pulmones",
+        "Piel",
+        "Sistema endocrino"
+      ]
+    }
+  },
+  "ciprés": {
+    "nombre": "Ciprés (Cupressus sargentii)",
+    "usos_terapeuticos": [
+      "Antitusiva",
+      "Expectorante",
+      "Astringente",
+      "Antiinflamatoria",
+      "Antiséptica",
+      "Venotónica (mejora circulación venosa)",
+      "Hemostática (detiene hemorragias leves)"
+    ],
+    "advertencias_clinicas": [
+      [cite_start]"Aceite esencial puede neurotóxico [cite: 129]",
+      [cite_start]"NO uso interno del aceite esencial [cite: 130]",
+      [cite_start]"Evitar en embarazo y lactancia [cite: 130]",
+      [cite_start]"Puede causar reacciones alérgicas cutáneas [cite: 130]",
+      [cite_start]"Puede irritar mucosas [cite: 130]"
+    ],
+    "interacciones": {
+      "medicamentos": [
+        "Analgésicos opioides",
+        "Antibióticos",
+        "Anticoagulantes",
+        "Anticonceptivos",
+        "Anticonvulsivantes",
+        "Antidepresivos",
+        "Antidiabéticos",
+        "Antiinflamatorios",
+        "Antineoplásicos",
+        "Antipsicóticos",
+        "Antivirales",
+        "Antihipertensivos",
+        "Benzodiacepinas",
+        "Broncodilatadores",
+        "Corticoides",
+        "Inmunosupresores"
+      ],
+      "toxicidad_organica": [
+        "Hígado",
+        "Riñones",
+        "Corazón",
+        "Cerebro /SNC",
+        "Tracto digestivo",
+        "Pulmones",
+        "Piel",
+        "Sistema endocrino"
+      ]
+    }
+  },
+  "clavel": {
+    "nombre": "Clavel (Dianthus caryophyllus)",
+    "usos_terapeuticos": [
+      "Antiinflamatoria",
+      "Antiespasmódica",
+      "Digestiva",
+      "Calmante",
+      "Tónica cardíaca",
+      "Analgésica leve",
+      "Antioxidante"
+    ],
+    "advertencias_clinicas": [
+      "Posibles alergias cutáneas (uso prolongado)",
+      "Puede causar irritación digestiva (uso prolongado)"
+    ],
+    "interacciones": {
+      "medicamentos": [
+        "Analgésicos opioides",
+        "Antibióticos",
+        "Anticoagulantes",
+        "Anticonceptivos",
+        "Anticonvulsivantes",
+        "Antidepresivos",
+        "Antidiabéticos",
+        "Antiinflamatorios",
+        "Antineoplásicos",
+        "Antipsicóticos",
+        "Antivirales",
+        "Antihipertensivos",
+        "Benzodiacepinas",
+        "Broncodilatadores",
+        "Corticoides",
+        "Inmunosupresores"
+      ],
+      "toxicidad_organica": [
+        "Hígado",
+        "Riñones",
+        "Corazón",
+        "Cerebro /SNC",
+        "Tracto digestivo",
+        "Pulmones",
+        "Piel",
+        "Sistema endocrino"
+      ]
+    }
+  },
+  "coca": {
+    "nombre": "Coca (Erythroxylum coca Lam.)",
+    "usos_terapeuticos": [
+      "Energizante",
+      "Estimulante",
+      "Digestiva",
+      "Contra el mal de altura (soroche)",
+      "Analgésica",
+      "Antiespasmódica"
+    ],
+    "advertencias_clinicas": [
+      [cite_start]"El uso tradicional de la hoja de coca no implica efectos psicotrópicos intensos, niveles de alcaloides son bajos y no refinados [cite: 134]",
+      [cite_start]"Puede elevar ligeramente la presión arterial y la frecuencia cardíaca [cite: 135]",
+      [cite_start]"No combinarse con estimulantes del SNC [cite: 136]",
+      [cite_start]"Contraindicado en pacientes con hipertensión no controlada, arritmias o embarazo [cite: 136]"
+    ],
+    "interacciones": {
+      "medicamentos": [
+        "Analgésicos opioides",
+        "Antibióticos",
+        "Anticoagulantes",
+        "Anticonceptivos",
+        "Anticonvulsivantes",
+        "Antidepresivos",
+        "Antidiabéticos",
+        "Antiinflamatorios",
+        "Antineoplásicos",
+        "Antipsicóticos",
+        "Antivirales",
+        "Antihipertensivos",
+        "Benzodiacepinas",
+        "Broncodilatadores",
+        "Corticoides",
+        "Inmunosupresores"
+      ],
+      "toxicidad_organica": [
+        "Hígado",
+        "Riñones",
+        "Corazón",
+        "Cerebro /SNC",
+        "Tracto digestivo",
+        "Pulmones",
+        "Piel",
+        "Sistema endocrino"
+      ]
+    }
+  },
+  "cola de caballo": {
+    "nombre": "Cola de caballo (Equisetum giganteum)",
+    "usos_terapeuticos": [
+      "Diurética",
+      "Antiinflamatoria",
+      "Cicatrizante",
+      "Remineralizante",
+      "Hemostática",
+      "Depurativa",
+      "Antiedematosa"
+    ],
+    "advertencias_clinicas": [
+      "Pérdida de potasio, irritación gástrica (uso prolongado)",
+      "Daño renal leve (uso prolongado)",
+      [cite_start]"Contraindicada en embarazo, lactancia [cite: 140]",
+      [cite_start]"Interfiere con la absorción de vitamina B1 [cite: 140]",
+      [cite_start]"No debe combinarse con diuréticos [cite: 140]"
+    ],
+    "interacciones": {
+      "medicamentos": [
+        "Analgésicos opioides",
+        "Antibióticos",
+        "Anticoagulantes",
+        "Anticonceptivos",
+        "Anticonvulsivantes",
+        "Antidepresivos",
+        "Antidiabéticos",
+        "Antiinflamatorios",
+        "Antineoplásicos",
+        "Antipsicóticos",
+        "Antivirales",
+        "Antihipertensivos",
+        "Benzodiacepinas",
+        "Broncodilatadores",
+        "Corticoides",
+        "Inmunosupresores"
+      ],
+      "toxicidad_organica": [
+        "Hígado",
+        "Riñones",
+        "Corazón",
+        "Cerebro /SNC",
+        "Tracto digestivo",
+        "Pulmones",
+        "Piel",
+        "Sistema endocrino"
+      ]
+    }
+  },
+  "culén o huallhua": {
+    "nombre": "Culén o Huallhua (Psoralea glandulosa)",
+    "usos_terapeuticos": [
+      "Antiinflamatorias",
+      "Antisépticas",
+      "Digestivas",
+      "Carminativas (reducen gases)",
+      "Estimulantes hepáticas",
+      "Febrífugas (reducen fiebre)",
+      "Antidiarreicas"
+    ],
+    "advertencias_clinicas": [
+      [cite_start]"Pueden inducir fotosensibilidad [cite: 142]",
+      [cite_start]"Puede causar hepatotoxicidad [cite: 142]",
+      [cite_start]"Evitar su uso en embarazadas y personas con trastornos hepáticos [cite: 143]",
+      [cite_start]"No debe aplicarse sobre la piel antes de exposición solar [cite: 143]"
+    ],
+    "interacciones": {
+      "medicamentos": [
+        "Analgésicos opioides",
+        "Antibióticos",
+        "Anticoagulantes",
+        "Anticonceptivos",
+        "Anticonvulsivantes",
+        "Antidepresivos",
+        "Antidiabéticos",
+        "Antiinflamatorios",
+        "Antineoplásicos",
+        "Antipsicóticos",
+        "Antivirales",
+        "Antihipertensivos",
+        "Benzodiacepinas",
+        "Broncodilatadores",
+        "Corticoides",
+        "Inmunosupresores"
+      ],
+      "toxicidad_organica": [
+        "Hígado",
+        "Riñones",
+        "Corazón",
+        "Cerebro /SNC",
+        "Tracto digestivo",
+        "Pulmones",
+        "Piel",
+        "Sistema endocrino"
+      ]
+    }
+  },
+  "diente de león": {
+    "nombre": "Diente de león (Taraxacum officinale F.H.Wigg.)",
+    "usos_terapeuticos": [
+      "Diurética",
+      "Depurativa",
+      "Hepatoprotectora",
+      "Estimulantes digestiva",
+      "Colerética (estimula producción de bilis)",
+      "Laxantes suave",
+      "Antiinflamatoria"
+    ],
+    "advertencias_clinicas": [
+      [cite_start]"Látex del tallo puede causar irritación [cite: 145]",
+      [cite_start]"Evitar en obstrucción biliar o cálculos grandes [cite: 146]",
+      [cite_start]"Personas con úlceras gástricas activas [cite: 146]",
+      [cite_start]"Aumenta la eliminación renal de fármacos [cite: 146]"
+    ],
+    "interacciones": {
+      "medicamentos": [
+        "Analgésicos opioides",
+        "Antibióticos",
+        "Anticoagulantes",
+        "Anticonceptivos",
+        "Anticonvulsivantes",
+        "Antidepresivos",
+        "Antidiabéticos",
+        "Antiinflamatorios",
+        "Antineoplásicos",
+        "Antipsicóticos",
+        "Antivirales",
+        "Antihipertensivos",
+        "Benzodiacepinas",
+        "Broncodilatadores",
+        "Corticoides",
+        "Inmunosupresores"
+      ],
+      "toxicidad_organica": [
+        "Hígado",
+        "Riñones",
+        "Corazón",
+        "Cerebro /SNC",
+        "Tracto digestivo",
+        "Pulmones",
+        "Piel",
+        "Sistema endocrino"
+      ]
+    }
+  },
+  "eucalipto": {
+    "nombre": "Eucalipto (Eucalyptus globulus Labill.)",
+    "usos_terapeuticos": [
+      "Expectorante",
+      "Antiséptica",
+      "Antiinflamatoria",
+      "Antibacteriana",
+      "Descongestionante",
+      "Antipirética",
+      "Antitusiva"
+    ],
+    "advertencias_clinicas": [
+      [cite_start]"El aceite esencial es tóxico por vía oral (riesgo de convulsiones y depresión del SNC) [cite: 148]",
+      [cite_start]"No en menores de 2 años en forma de inhalación o ungüento cerca de nariz [cite: 149]",
+      [cite_start]"Puede interferir con la absorción de algunos medicamentos orales [cite: 150]",
+      [cite_start]"NO en enfermedades hepáticas graves [cite: 150]"
+    ],
+    "interacciones": {
+      "medicamentos": [
+        "Analgésicos opioides",
+        "Antibióticos",
+        "Anticoagulantes",
+        "Anticonceptivos",
+        "Anticonvulsivantes",
+        "Antidepresivos",
+        "Antidiabéticos",
+        "Antiinflamatorios",
+        "Antineoplásicos",
+        "Antipsicóticos",
+        "Antivirales",
+        "Antihipertensivos",
+        "Benzodiacepinas",
+        "Broncodilatadores",
+        "Corticoides",
+        "Inmunosupresores"
+      ],
+      "toxicidad_organica": [
+        "Hígado",
+        "Riñones",
+        "Corazón",
+        "Cerebro /SNC",
+        "Tracto digestivo",
+        "Pulmones",
+        "Piel",
+        "Sistema endocrino"
+      ]
+    }
+  },
+  "higo": {
+    "nombre": "Higo (Ficus carica L.)",
+    "usos_terapeuticos": [
+      "Digestiva",
+      "Laxante",
+      "Hipoglucemiante",
+      "Expectorante",
+      "Antihelmíntica (uso del látex)",
+      "Emoliente (uso externo)",
+      "Antiulcerosa (hojas en infusión)"
+    ],
+    "advertencias_clinicas": [
+      [cite_start]"Puede causar irritación cutánea o mucosa [cite: 152]",
+      [cite_start]"El fruto puede provocar diarrea [cite: 153]",
+      [cite_start]"Efecto hipoglucemiante leve [cite: 153]",
+      [cite_start]"No utilizar el látex en heridas abiertas [cite: 153]"
+    ],
+    "interacciones": {
+      "medicamentos": [
+        "Analgésicos opioides",
+        "Antibióticos",
+        "Anticoagulantes",
+        "Anticonceptivos",
+        "Anticonvulsivantes",
+        "Antidepresivos",
+        "Antidiabéticos",
+        "Antiinflamatorios",
+        "Antineoplásicos",
+        "Antipsicóticos",
+        "Antivirales",
+        "Antihipertensivos",
+        "Benzodiacepinas",
+        "Broncodilatadores",
+        "Corticoides",
+        "Inmunosupresores"
+      ],
+      "toxicidad_organica": [
+        "Hígado",
+        "Riñones",
+        "Corazón",
+        "Cerebro /SNC",
+        "Tracto digestivo",
+        "Pulmones",
+        "Piel",
+        "Sistema endocrino"
+      ]
+    }
+  },
+  "hierba del pajarito": {
+    "nombre": "Hierba del pajarito (Tripodanthus acutifolius)",
+    "usos_terapeuticos": [
+      "Hipotensoras",
+      "Diuréticas",
+      "Antiinflamatorias",
+      "Antirreumáticas",
+      "Hepatoprotectoras",
+      "Estimulantes del sistema inmune"
+    ],
+    "advertencias_clinicas": [
+      [cite_start]"Al ser planta hemiparásita (como el muérdago), puede acumular metabolitos secundarios potentes dependiendo del hospedador [cite: 155]",
+      [cite_start]"Alteraciones cardiovasculares leves [cite: 156]",
+      [cite_start]"Evitar en embarazo por su efecto hipotensor [cite: 156]",
+      [cite_start]"Puede potenciar el efecto de medicamentos que reducen la presión arterial [cite: 156]"
+    ],
+    "interacciones": {
+      "medicamentos": [
+        "Analgésicos opioides",
+        "Antibióticos",
+        "Anticoagulantes",
+        "Anticonceptivos",
+        "Anticonvulsivantes",
+        "Antidepresivos",
+        "Antidiabéticos",
+        "Antiinflamatorios",
+        "Antineoplásicos",
+        "Antipsicóticos",
+        "Antivirales",
+        "Antihipertensivos",
+        "Benzodiacepinas",
+        "Broncodilatadores",
+        "Corticoides",
+        "Inmunosupresores"
+      ],
+      "toxicidad_organica": [
+        "Hígado",
+        "Riñones",
+        "Corazón",
+        "Cerebro /SNC",
+        "Tracto digestivo",
+        "Pulmones",
+        "Piel",
+        "Sistema endocrino"
+      ]
+    }
+  },
+  "hierba mora": {
+    "nombre": "Hierba Mora (Solanum nitidum)",
+    "usos_terapeuticos": [
+      "Antiinflamatoria",
+      "Antiséptica",
+      "Analgésica",
+      "Cicatrizante",
+      "Emoliente",
+      "Antirreumática",
+      "Antitusiva"
+    ],
+    "advertencias_clinicas": [
+      [cite_start]"Contiene alcaloides solanáceos, potencialmente tóxicos en hojas y frutos inmaduros [cite: 159]",
+      [cite_start]"Frutos inmaduros pueden causar síntomas neurológicos y digestivos [cite: 159]",
+      [cite_start]"Contraindicado en embarazo, lactancia [cite: 160]"
+    ],
+    "interacciones": {
+      "medicamentos": [
+        "Analgésicos opioides",
+        "Antibióticos",
+        "Anticoagulantes",
+        "Anticonceptivos",
+        "Anticonvulsivantes",
+        "Antidepresivos",
+        "Antidiabéticos",
+        "Antiinflamatorios",
+        "Antineoplásicos",
+        "Antipsicóticos",
+        "Antivirales",
+        "Antihipertensivos",
+        "Benzodiacepinas",
+        "Broncodilatadores",
+        "Corticoides",
+        "Inmunosupresores"
+      ],
+      "toxicidad_organica": [
+        "Hígado",
+        "Riñones",
+        "Corazón",
+        "Cerebro /SNC",
+        "Tracto digestivo",
+        "Pulmones",
+        "Piel",
+        "Sistema endocrino"
+      ]
+    }
+  },
+  "hinojo": {
+    "nombre": "Hinojo (Foeniculum vulgare)",
+    "usos_terapeuticos": [
+      "Carminativas (reduce gases)",
+      "Antiespasmódicas",
+      "Digestivas",
+      "Galactogogas (estimula producción de leche)",
+      "Expectorantes",
+      "Estimulantes menstruales",
+      "Antiinflamatorias"
+    ],
+    "advertencias_clinicas": [
+      [cite_start]"Efecto estrogénico leve por contenido de anetol [cite: 161]",
+      [cite_start]"Evitar en pacientes con cánceres hormonodependientes [cite: 162]",
+      [cite_start]"Aceite esencial en grandes dosis es neurotóxico y convulsivante [cite: 162]",
+      [cite_start]"Puede interferir con medicamentos hormonales y neurológicos [cite: 162]"
+    ],
+    "interacciones": {
+      "medicamentos": [
+        "Analgésicos opioides",
+        "Antibióticos",
+        "Anticoagulantes",
+        "Anticonceptivos",
+        "Anticonvulsivantes",
+        "Antidepresivos",
+        "Antidiabéticos",
+        "Antiinflamatorios",
+        "Antineoplásicos",
+        "Antipsicóticos",
+        "Antivirales",
+        "Antihipertensivos",
+        "Benzodiacepinas",
+        "Broncodilatadores",
+        "Corticoides",
+        "Inmunosupresores"
+      ],
+      "toxicidad_organica": [
+        "Hígado",
+        "Riñones",
+        "Corazón",
+        "Cerebro /SNC",
+        "Tracto digestivo",
+        "Pulmones",
+        "Piel",
+        "Sistema endocrino"
+      ]
+    }
+  },
+  "huacatay": {
+    "nombre": "Huacatay (Tagetes terniflora)",
+    "usos_terapeuticos": [
+      "Antiparasitarias",
+      "Antiinflamatorias",
+      "Digestivas",
+      "Carminativas",
+      "Antiespasmódicas",
+      "Antisépticas",
+      "Cicatrizantes",
+      "Expectorantes"
+    ],
+    "advertencias_clinicas": [
+      [cite_start]"Contiene tagetona, ocimeno que pueden tener efectos tóxicos [cite: 164]",
+      [cite_start]"Neurotoxicidad leve y hepatotoxicidad [cite: 164]",
+      [cite_start]"No recomendado en embarazo y lactancia [cite: 165]"
+    ],
+    "interacciones": {
+      "medicamentos": [
+        "Analgésicos opioides",
+        "Antibióticos",
+        "Anticoagulantes",
+        "Anticonceptivos",
+        "Anticonvulsivantes",
+        "Antidepresivos",
+        "Antidiabéticos",
+        "Antiinflamatorios",
+        "Antineoplásicos",
+        "Antipsicóticos",
+        "Antivirales",
+        "Antihipertensivos",
+        "Benzodiacepinas",
+        "Broncodilatadores",
+        "Corticoides",
+        "Inmunosupresores"
+      ],
+      "toxicidad_organica": [
+        "Hígado",
+        "Riñones",
+        "Corazón",
+        "Cerebro /SNC",
+        "Tracto digestivo",
+        "Pulmones",
+        "Piel",
+        "Sistema endocrino"
+      ]
+    }
+  },
+  "kantuta": {
+    "nombre": "Kantuta (Cantua flexuosa)",
+    "usos_terapeuticos": [
+      "Antiinflamatorias",
+      "Analgésicas",
+      "Antisépticas",
+      "Expectorantes",
+      "Antitusivas",
+      "Cicatrizantes",
+      "Digestivas",
+      "Diuréticas"
+    ],
+    "advertencias_clinicas": [
+      [cite_start]"Pueden irritar el tracto digestivo [cite: 166]",
+      [cite_start]"Evitar en embarazo y lactancia por ausencia de datos toxicológicos [cite: 166]",
+      [cite_start]"Puede potenciar la diuresis; usar con precaución en pacientes con trastornos renales [cite: 167]"
+    ],
+    "interacciones": {
+      "medicamentos": [
+        "Analgésicos opioides",
+        "Antibióticos",
+        "Anticoagulantes",
+        "Anticonceptivos",
+        "Anticonvulsivantes",
+        "Antidepresivos",
+        "Antidiabéticos",
+        "Antiinflamatorios",
+        "Antineoplásicos",
+        "Antipsicóticos",
+        "Antivirales",
+        "Antihipertensivos",
+        "Benzodiacepinas",
+        "Broncodilatadores",
+        "Corticoides",
+        "Inmunosupresores"
+      ],
+      "toxicidad_organica": [
+        "Hígado",
+        "Riñones",
+        "Corazón",
+        "Cerebro /SNC",
+        "Tracto digestivo",
+        "Pulmones",
+        "Piel",
+        "Sistema endocrino"
+      ]
+    }
+  },
+  "kiswara": {
+    "nombre": "Kiswara (Buddleja coriacea J. Rémy.)",
+    "usos_terapeuticos": [
+      "Antiinflamatorias",
+      "Antisépticas",
+      "Cicatrizantes",
+      "Digestivas",
+      "Antitusivas",
+      "Hepatoprotectoras",
+      "Estimulantes inmunitarios",
+      "Desinfectantes urinarios"
+    ],
+    "advertencias_clinicas": [
+      [cite_start]"Estudios científicos son escasos [cite: 169]",
+      [cite_start]"No existen estudios toxicológicos sistemáticos ni evidencia clara de interacción farmacológica [cite: 170]",
+      [cite_start]"No en embarazo y lactancia por falta de estudios [cite: 170]"
+    ],
+    "interacciones": {
+      "medicamentos": [
+        "Analgésicos opioides",
+        "Antibióticos",
+        "Anticoagulantes",
+        "Anticonceptivos",
+        "Anticonvulsivantes",
+        "Antidepresivos",
+        "Antidiabéticos",
+        "Antiinflamatorios",
+        "Antineoplásicos",
+        "Antipsicóticos",
+        "Antivirales",
+        "Antihipertensivos",
+        "Benzodiacepinas",
+        "Broncodilatadores",
+        "Corticoides",
+        "Inmunosupresores"
+      ],
+      "toxicidad_organica": [
+        "Hígado",
+        "Riñones",
+        "Corazón",
+        "Cerebro /SNC",
+        "Tracto digestivo",
+        "Pulmones",
+        "Piel",
+        "Sistema endocrino"
+      ]
+    }
+  },
+  "malva": {
+    "nombre": "Malva (Malva sylvestris L.)",
+    "usos_terapeuticos": [
+      "Antiinflamatorias",
+      "Emolientes (suavizante de mucosas y piel)",
+      "Antitusivas",
+      "Digestivas",
+      "Diuréticas",
+      "Cicatrizantes",
+      "Laxantes suaves",
+      "Antisépticas"
+    ],
+    "advertencias_clinicas": [
+      [cite_start]"Puede interferir con la absorción intestinal de medicamentos orales si se toma en simultáneo (efecto mucílago) [cite: 172]",
+      [cite_start]"No usar en tratamientos farmacológicos sin separar al menos 2 horas [cite: 173]"
+    ],
+    "interacciones": {
+      "medicamentos": [
+        "Analgésicos opioides",
+        "Antibióticos",
+        "Anticoagulantes",
+        "Anticonceptivos",
+        "Anticonvulsivantes",
+        "Antidepresivos",
+        "Antidiabéticos",
+        "Antiinflamatorios",
+        "Antineoplásicos",
+        "Antipsicóticos",
+        "Antivirales",
+        "Antihipertensivos",
+        "Benzodiacepinas",
+        "Broncodilatadores",
+        "Corticoides",
+        "Inmunosupresores"
+      ],
+      "toxicidad_organica": [
+        "Hígado",
+        "Riñones",
+        "Corazón",
+        "Cerebro /SNC",
+        "Tracto digestivo",
+        "Pulmones",
+        "Piel",
+        "Sistema endocrino"
+      ]
+    }
+  },
+  "manzanilla": {
+    "nombre": "Manzanilla (Matricaria recutita L.)",
+    "usos_terapeuticos": [
+      "Antiinflamatorias",
+      "Digestivas",
+      "Carminativas",
+      "Antiespasmódicas",
+      "Sedantes suaves",
+      "Antisépticas",
+      "Cicatrizantes",
+      "Antitusivas"
+    ],
+    "advertencias_clinicas": [
+      [cite_start]"Puede potenciar el efecto de sedantes y anticoagulantes por contenido de cumarinas [cite: 175]",
+      [cite_start]"Evitar en embarazo en grandes cantidades; infusión moderada es generalmente segura [cite: 176]"
+    ],
+    "interacciones": {
+      "medicamentos": [
+        "Analgésicos opioides",
+        "Antibióticos",
+        "Anticoagulantes",
+        "Anticonceptivos",
+        "Anticonvulsivantes",
+        "Antidepresivos",
+        "Antidiabéticos",
+        "Antiinflamatorios",
+        "Antineoplásicos",
+        "Antipsicóticos",
+        "Antivirales",
+        "Antihipertensivos",
+        "Benzodiacepinas",
+        "Broncodilatadores",
+        "Corticoides",
+        "Inmunosupresores"
+      ],
+      "toxicidad_organica": [
+        "Hígado",
+        "Riñones",
+        "Corazón",
+        "Cerebro /SNC",
+        "Tracto digestivo",
+        "Pulmones",
+        "Piel",
+        "Sistema endocrino"
+      ]
+    }
+  },
+  "menta": {
+    "nombre": "Menta (Mentha piperita L.)",
+    "usos_terapeuticos": [
+      "Antiespasmódicas",
+      "Carminativas",
+      "Digestivas",
+      "Antiinflamatorias",
+      "Antisépticas",
+      "Antitusivas"
+    ],
+    "advertencias_clinicas": [
+      [cite_start]"Puede causar irritación gástrica, bradicardia o toxicidad neurológica leve [cite: 178]",
+      [cite_start]"Evitar aceite esencial puro en niños menores de 2 años (riesgo de espasmo glótico) [cite: 179]",
+      [cite_start]"Puede interferir con antiácidos o medicamentos que requieran pH gástrico ácido [cite: 180]"
+    ],
+    "interacciones": {
+      "medicamentos": [
+        "Analgésicos opioides",
+        "Antibióticos",
+        "Anticoagulantes",
+        "Anticonceptivos",
+        "Anticonvulsivantes",
+        "Antidepresivos",
+        "Antidiabéticos",
+        "Antiinflamatorios",
+        "Antineoplásicos",
+        "Antipsicóticos",
+        "Antivirales",
+        "Antihipertensivos",
+        "Benzodiacepinas",
+        "Broncodilatadores",
+        "Corticoides",
+        "Inmunosupresores"
+      ],
+      "toxicidad_organica": [
+        "Hígado",
+        "Riñones",
+        "Corazón",
+        "Cerebro /SNC",
+        "Tracto digestivo",
+        "Pulmones",
+        "Piel",
+        "Sistema endocrino"
+      ]
+    }
+  },
+  "paja brava": {
+    "nombre": "Paja brava (Cortaderia sp.)",
+    "usos_terapeuticos": [
+      "Diuréticas",
+      "Depurativas",
+      "Antiinflamatorias",
+      "Desintoxicantes",
+      "Antisépticas urinarias",
+      "Antipiréticas (bajan la fiebre)"
+    ],
+    "advertencias_clinicas": [
+      [cite_start]"No existen estudios farmacológicos ni toxicológicos específicos en humanos [cite: 182]",
+      [cite_start]"Evitar en embarazo, lactancia y en niños pequeños por falta de datos [cite: 183]"
+    ],
+    "interacciones": {
+      "medicamentos": [
+        "Analgésicos opioides",
+        "Antibióticos",
+        "Anticoagulantes",
+        "Anticonceptivos",
+        "Anticonvulsivantes",
+        "Antidepresivos",
+        "Antidiabéticos",
+        "Antiinflamatorios",
+        "Antineoplásicos",
+        "Antipsicóticos",
+        "Antivirales",
+        "Antihipertensivos",
+        "Benzodiacepinas",
+        "Broncodilatadores",
+        "Corticoides",
+        "Inmunosupresores"
+      ],
+      "toxicidad_organica": [
+        "Hígado",
+        "Riñones",
+        "Corazón",
+        "Cerebro /SNC",
+        "Tracto digestivo",
+        "Pulmones",
+        "Piel",
+        "Sistema endocrino"
+      ]
+    }
+  },
+  "retama": {
+    "nombre": "Retama (Spartium junceum L)",
+    "usos_terapeuticos": [
+      "Diuréticas",
+      "Hipotensoras",
+      "Antiinflamatorias",
+      "Depurativas",
+      "Expectorantes",
+      "Analgésicas",
+      "Emenagogas (estimula menstruación)"
+    ],
+    "advertencias_clinicas": [
+      [cite_start]"Puede causar bradicardia, náuseas, vómitos y convulsiones si se consume en exceso [cite: 185]",
+      [cite_start]"No usar en embarazo ni lactancia por actividad uterotónica y riesgo para el feto [cite: 186]"
+    ],
+    "interacciones": {
+      "medicamentos": [
+        "Analgésicos opioides",
+        "Antibióticos",
+        "Anticoagulantes",
+        "Anticonceptivos",
+        "Anticonvulsivantes",
+        "Antidepresivos",
+        "Antidiabéticos",
+        "Antiinflamatorios",
+        "Antineoplásicos",
+        "Antipsicóticos",
+        "Antivirales",
+        "Antihipertensivos",
+        "Benzodiacepinas",
+        "Broncodilatadores",
+        "Corticoides",
+        "Inmunosupresores"
+      ],
+      "toxicidad_organica": [
+        "Hígado",
+        "Riñones",
+        "Corazón",
+        "Cerebro /SNC",
+        "Tracto digestivo",
+        "Pulmones",
+        "Piel",
+        "Sistema endocrino"
+      ]
+    }
+  },
+  "romero": {
+    "nombre": "Romero (Rosmarinus officinalis L.)",
+    "usos_terapeuticos": [
+      "Estimulantes",
+      "Antiinflamatorias",
+      "Carminativas",
+      "Colagogas (estimulan flujo biliar)",
+      "Antisépticas",
+      "Analgésicas",
+      "Cicatrizantes",
+      "Rubefacientes (mejoran circulación)",
+      "Estimulantes del sistema nervioso"
+    ],
+    "advertencias_clinicas": [
+      [cite_start]"El aceite esencial puede ser neurotóxico [cite: 188]",
+      [cite_start]"No se recomienda en embarazo por efecto emenagogo y riesgo de contracciones [cite: 189]",
+      [cite_start]"Puede interferir con fármacos antihipertensivos y anticonvulsivantes [cite: 189]"
+    ],
+    "interacciones": {
+      "medicamentos": [
+        "Analgésicos opioides",
+        "Antibióticos",
+        "Anticoagulantes",
+        "Anticonceptivos",
+        "Anticonvulsivantes",
+        "Antidepresivos",
+        "Antidiabéticos",
+        "Antiinflamatorios",
+        "Antineoplásicos",
+        "Antipsicóticos",
+        "Antivirales",
+        "Antihipertensivos",
+        "Benzodiacepinas",
+        "Broncodilatadores",
+        "Corticoides",
+        "Inmunosupresores"
+      ],
+      "toxicidad_organica": [
+        "Hígado",
+        "Riñones",
+        "Corazón",
+        "Cerebro /SNC",
+        "Tracto digestivo",
+        "Pulmones",
+        "Piel",
+        "Sistema endocrino"
+      ]
+    }
+  },
+  "ruda": {
+    "nombre": "Ruda (Ruta chalepensis)",
+    "usos_terapeuticos": [
+      "Antiespasmódicas",
+      "Emmenagogas (estimula menstruación)",
+      "Digestivas",
+      "Antiinflamatorias",
+      "Vermífugas (expulsa parásitos intestinales)",
+      "Rubefacientes (mejora circulación)",
+      "Abortivas (riesgo)"
+    ],
+    "advertencias_clinicas": [
+      [cite_start]"En altas dosis, puede causar intoxicación severa, aborto, nefrotoxicidad y hepatotoxicidad [cite: 191]",
+      [cite_start]"Su uso interno está restringido o prohibido en varios países por toxicidad comprobada [cite: 192]",
+      [cite_start]"Tóxica en embarazo y lactancia [cite: 192]",
+      [cite_start]"Debe evitarse su uso en personas con enfermedades hepáticas, renales, cardíacas [cite: 193]"
+    ],
+    "interacciones": {
+      "medicamentos": [
+        "Analgésicos opioides",
+        "Antibióticos",
+        "Anticoagulantes",
+        "Anticonceptivos",
+        "Anticonvulsivantes",
+        "Antidepresivos",
+        "Antidiabéticos",
+        "Antiinflamatorios",
+        "Antineoplásicos",
+        "Antipsicóticos",
+        "Antivirales",
+        "Antihipertensivos",
+        "Benzodiacepinas",
+        "Broncodilatadores",
+        "Corticoides",
+        "Inmunosupresores"
+      ],
+      "toxicidad_organica": [
+        "Hígado",
+        "Riñones",
+        "Corazón",
+        "Cerebro /SNC",
+        "Tracto digestivo",
+        "Pulmones",
+        "Piel",
+        "Sistema endocrino"
+      ]
+    }
+  },
+  "verbena blanca": {
+    "nombre": "Verbena blanca (Stachys pusilla.)",
+    "usos_terapeuticos": [
+      "Antiinflamatorias",
+      "Analgésicas",
+      "Antiespasmódicas",
+      "Digestivas",
+      "Sedantes",
+      "Diuréticas",
+      "Galactogogas (producción de leche)"
+    ],
+    "advertencias_clinicas": [
+      [cite_start]"Precaución en personas con gastritis por su contenido en taninos [cite: 195]",
+      [cite_start]"Puede potenciar el efecto sedante de algunos fármacos [cite: 196]",
+      [cite_start]"No se recomienda en embarazo por posibles efectos uterotónicos [cite: 196]"
+    ],
+    "interacciones": {
+      "medicamentos": [
+        "Analgésicos opioides",
+        "Antibióticos",
+        "Anticoagulantes",
+        "Anticonceptivos",
+        "Anticonvulsivantes",
+        "Antidepresivos",
+        "Antidiabéticos",
+        "Antiinflamatorios",
+        "Antineoplásicos",
+        "Antipsicóticos",
+        "Antivirales",
+        "Antihipertensivos",
+        "Benzodiacepinas",
+        "Broncodilatadores",
+        "Corticoides",
+        "Inmunosupresores"
+      ],
+      "toxicidad_organica": [
+        "Hígado",
+        "Riñones",
+        "Corazón",
+        "Cerebro /SNC",
+        "Tracto digestivo",
+        "Pulmones",
+        "Piel",
+        "Sistema endocrino"
+      ]
+    }
+  },
+  "wira wira": {
+    "nombre": "Wira Wira (Achyrocline venosa Rusby)",
+    "usos_terapeuticos": [
+      "Expectorantes",
+      "Antitusivas (contra la tos)",
+      "Antiinflamatorias",
+      "Antisépticas",
+      "Cicatrizantes",
+      "Antibacteriana",
+      "Digestivas"
+    ],
+    "advertencias_clinicas": [
+      [cite_start]"Precaución en niños pequeños por posibles efectos en el sistema respiratorio en casos de broncoespasmo [cite: 198]",
+      [cite_start]"No usar durante el embarazo por falta de estudios y posible actividad uterina [cite: 199]"
+    ],
+    "interacciones": {
+      "medicamentos": [
+        "Analgésicos opioides",
+        "Antibióticos",
+        "Anticoagulantes",
+        "Anticonceptivos",
+        "Anticonvulsivantes",
+        "Antidepresivos",
+        "Antidiabéticos",
+        "Antiinflamatorios",
+        "Antineoplásicos",
+        "Antipsicóticos",
+        "Antivirales",
+        "Antihipertensivos",
+        "Benzodiacepinas",
+        "Broncodilatadores",
+        "Corticoides",
+        "Inmunosupresores"
+      ],
+      "toxicidad_organica": [
+        "Hígado",
+        "Riñones",
+        "Corazón",
+        "Cerebro /SNC",
+        "Tracto digestivo",
+        "Pulmones",
+        "Piel",
+        "Sistema endocrino"
+      ]
+    }
   }
 }
